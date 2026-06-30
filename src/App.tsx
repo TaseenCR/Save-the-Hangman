@@ -78,6 +78,30 @@ function App(){
     <div style={{
       position: "absolute",
       top: "3.9rem",
+      left: "max(2rem, calc((100vw - 850px) / 2 - 220px))",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      gap: "0.5rem",
+      textAlign: "left",
+      width: "240px",
+      fontFamily: "monospace"
+    }}> 
+
+      <div style={{
+        fontSize: "0.95rem",
+        color: "#424242",
+        lineHeight: "1.4"
+      }}>
+        <p style={{margin: "0 0 0.5rem 0", fontStyle: "italic"}}>
+          <strong>Definition: </strong>{wordMeaning}
+        </p>
+      </div>
+    </div>
+    
+    <div style={{
+      position: "absolute",
+      top: "3.9rem",
       right: "max(2rem, calc((100vw - 850px) / 2 - 220px))",
       display: "flex",
       flexDirection: "column",
@@ -100,12 +124,8 @@ function App(){
       {(isWinner || isLoser) && (
         <div style={{
           fontSize: "0.95rem",
-          color: "#424242",
           lineHeight: "1.4"
         }}>
-          <p style={{ margin: "0 0 0.5rem 0", fontStyle: "italic" }}>
-            <strong>Definition:</strong> {wordMeaning}
-          </p>
           <span style={{fontSize: "0.8rem", color: "#9e9e9e", textTransform: "uppercase"}}>
             [ Press ENTER to play again ]
           </span>
