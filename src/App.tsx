@@ -4,6 +4,7 @@ import { HangmanWord } from "./HangmanWord"
 import { Keyboard } from "./Keyboard"
 import words from "./words.json"
 import meanings from "./wordMeanings.json"
+import examples from "./wordExamples.json"
 
 function getIdx(){
   return Math.floor(Math.random()*words.length)
@@ -13,6 +14,7 @@ function App(){
   const[curWordIdx, setCurWordIdx] = useState(getIdx)
   const wordToGuess = words[curWordIdx]
   const wordMeaning = meanings[curWordIdx]
+  const wordExamples = examples[curWordIdx]
 
   const [guessedLetters, setGuessedLetters] = useState<string[]>([])
 
@@ -78,23 +80,32 @@ function App(){
     <div style={{
       position: "absolute",
       top: "3.9rem",
-      left: "max(2rem, calc((100vw - 850px) / 2 - 220px))",
+      left: "max(2rem, calc((100vw - 850px) / 2 - 340px))",
       display: "flex",
       flexDirection: "column",
       alignItems: "flex-start",
       gap: "0.5rem",
       textAlign: "left",
-      width: "240px",
+      width: "360px",
       fontFamily: "monospace"
     }}> 
 
       <div style={{
-        fontSize: "0.95rem",
+        fontSize: "1.3rem",
         color: "#424242",
         lineHeight: "1.4"
       }}>
         <p style={{margin: "0 0 0.5rem 0", fontStyle: "italic"}}>
-          <strong>Definition: </strong>{wordMeaning}
+          <strong style={{color: "#0b29d1"}}>Definition: </strong>{wordMeaning}
+        </p>
+      </div>
+      <div style={{
+        fontSize: "1rem",
+        color: "#424242",
+        lineHeight: "1.4"
+      }}>
+        <p style={{margin: "0 0 0.5rem 0", fontStyle: "italic"}}>
+          <strong style={{color: "#470380", fontSize: "1.1rem"}}>Example: </strong>{wordExamples}
         </p>
       </div>
     </div>
